@@ -1,0 +1,48 @@
+{{< layout }}
+{{$ title }}User List -ADMIN-{{/ title }}
+
+{{$ header }}
+
+{{/ header }}
+
+{{$ content}}
+<div class="panel panel-default">
+    <div class="panel-heading">Users List - Admin View</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Quick Actions</h3>
+                <a href="users.php?action=add" class="btn btn-info btn-block" role="button"><i class="zmdi zmdi-account-add"></i> Add User</a>
+            </div>
+            <div class="col-md-9">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Edit</th>
+                        <th>User Name</th>
+                        <th>Name</th>
+                        <th>E-Mail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{# users}}
+                        <tr>
+                            <td>
+                                <a class="btn btn-info btn-xs btn-raised" role="button" href="users.php?uid={{id}}"><i class="zmdi zmdi-edit"></i></a>
+                            <td>{{username}}</td>
+                            <td>{{name}}</td>
+                            <td>{{email}}</td>
+                        </tr>
+                    {{/users}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ content}}
+
+{{$ scripts }}
+
+{{/ scripts }}
+{{/ layout }}

@@ -1,0 +1,66 @@
+{{< layout }}
+{{$ title }}Edit User{{/ title }}
+
+{{$ header }}
+
+{{/ header }}
+
+{{$ content}}
+<div class="panel panel-default">
+    <div class="panel-heading">Edit User</div>
+    <div class="panel-body">
+        {{# message}}
+            <div class="row">
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ . }}
+                </div>
+            </div>
+        {{/message}}
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Quick Actions</h3>
+                <a href="users.php" class="btn btn-info btn-block" role="button"><i class="zmdi zmdi-account"></i> User List</a>
+            </div>
+            <div class="col-md-9">
+                <form action="users.php?action=update" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <label for="userUserName">User Name</label>
+                        <input type="text" class="form-control" name="userUserName" placeholder="UserName" value="{{user.username}}{{post.userUserName}}" readonly >
+                    </div>
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" class="form-control" name="userName" placeholder="John Doe" value="{{user.name}}{{post.userName}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">E-Mail</label>
+                        <input type="email" class="form-control" name="userEmail" placeholder="flast@coloradomesa.edu" value="{{user.email}}{{post.userEmail}}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Password</label>
+                        <input type="password" class="form-control" name="userPassword" placeholder="Password">
+                    </div>
+                    {{# admin}}
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="userAdmin" {{# user.admin}}checked{{/ user.admin}}{{# post.userAdmin}}checked{{/ post.userAdmin}}> Admin User
+                        </label>
+                    </div>
+                    {{/admin}}
+                    <input type="hidden" name="uid"  value="{{user.id}}{{post.uid}}" >
+                    <button type="submit" class="btn btn-info"><i class="zmdi zmdi-file-plus"></i>&nbsp;Save</button>
+                    {{# admin }}
+                        <a class="btn btn-danger" id="deleteButton" href="users.php?action=delete&userID={{user.id}}" title="Delete this user"><i class="zmdi zmdi-delete"></i>&nbsp;Delete</a>
+                    {{/ admin }}
+                    <a href="users.php" class="btn btn-info"><i class="zmdi zmdi-undo"></i>&nbsp;Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ content}}
+
+{{$ scripts }}
+<script src="../js/users.js"></script>
+{{/ scripts }}
+{{/ layout }}

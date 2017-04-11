@@ -1,0 +1,53 @@
+<div class="navbar navbar-wine" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">SITE NAME</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-warning-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#"><i class="zmdi zmdi-pin"></i>&nbsp;MAIN ITEM 1</a></li>
+                <li><a href="#"><i class="zmdi zmdi-book"></i>&nbsp;MAIN ITEM 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><i class="zmdi zmdi-share"></i>&nbsp;Share&nbsp;<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="zmdi zmdi-google-play"></i>&nbsp;Google Play</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-apple"></i>&nbsp;Apple App Store</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><i class="zmdi zmdi-facebook"></i>&nbsp;FaceBook</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-twitter"></i>&nbsp;Twitter</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-google-plus"></i>&nbsp;Google+</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><i class="zmdi zmdi-code-setting"></i>&nbsp;Link</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><i class="zmdi zmdi-account-circle"></i>&nbsp;Account&nbsp;<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {{# user}}
+                            <li><a href="#"><i class="zmdi zmdi-mood"></i>&nbsp;Hello {{username}}</a></li>
+                            <li><a href="users.php"><i class="zmdi zmdi-accounts-list"></i>&nbsp;My Account</a></li>
+                            <li><a href="business.php"><i class="zmdi zmdi-coffee"></i>&nbsp;My Businesses</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="logout.php"><span class="zmdi-hc-stack"><i class="zmdi zmdi-account zmdi-hc-stack-1x"></i><i class="zmdi zmdi-block mdc-text-red zmdi-hc-stack-2x"></i></span>&nbsp;Log Out</a></li>
+                        {{/user}}
+                        {{^ user}}
+                            <li><a href="login.php?action=signup"><i class="zmdi zmdi-account-add"></i>&nbsp;Sign Up</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="login.php"><i class="zmdi zmdi-accounts-list-alt"></i>&nbsp;Log In</a></li>
+                        {{/user}}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
