@@ -14,10 +14,6 @@ $m = new Mustache_Engine([
 require_once('MysqliDb.php');
 $db = new MysqliDb ($host, $username, $password, $dbname);
 
-//require_once("weather.php");
-//$weather = outputWeather($db);
-//$weather['CurrentTemp'] = round($weather['CurrentTemp'], 1);
-//$data['weatherNav'] = $weather;
 $data['settings']['year'] = date('Y');
 $data['settings']['GMapAPI'] = $gmapsAPI;
 
